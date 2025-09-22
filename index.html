@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Undangan Pernikahan Xaviera & Jeno</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Dancing Script', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fffdfd;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Animasi teks entrance */
+    .fade-in-text {
+      animation: fadeInUp 2s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Animasi bunga goyang */
+    .bunga-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+    }
+
+    .bunga-go {
+      width: 80px;
+      animation: swing 3s infinite ease-in-out;
+    }
+
+    @keyframes swing {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-5deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    /* Bunga kiri bawah */
+    .bunga-container-left {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 10;
+    }
+
+    .bunga-go-left {
+      width: 60px;
+      animation: swing-reverse 4s infinite ease-in-out;
+      animation-delay: 1s;
+    }
+
+    @keyframes swing-reverse {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(-3deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(3deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    /* Animasi fade in untuk gambar */
+    .fade-in-image {
+      animation: fadeInScale 1.5s ease-out forwards;
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    @keyframes fadeInScale {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Animasi slide untuk card */
+    .slide-in-left {
+      animation: slideInLeft 1.5s ease-out forwards;
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+
+    .slide-in-right {
+      animation: slideInRight 1.5s ease-out forwards;
+      opacity: 0;
+      transform: translateX(50px);
+    }
+
+    @keyframes slideInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Delay untuk berbagai elemen */
+    .delay-1 { animation-delay: 0.5s; }
+    .delay-2 { animation-delay: 1s; }
+    .delay-3 { animation-delay: 1.5s; }
+    .delay-4 { animation-delay: 2s; }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #12359f;
+    }
+
+    .cover {
+  background: url('couple.jpg') ;
+  background-size: contain;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+
+    .cover .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .cover .content {
+      z-index: 2;
+      position: relative;
+    }
+
+    .cover h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+
+    .cover p {
+      font-size: 20px;
+    }
+
+    .btn-open {
+      background-color: #ff4081;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-open:hover {
+      transform: scale(1.05);
+    }
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .timer div {
+      background-color: #fff0f5;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      text-align: center;
+      min-width: 80px;
+    }
+
+    .timer p {
+      font-size: 14px;
+      color: #d81b60;
+      margin-top: 10px;
+    }
+
+    .profiles {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .profile {
+      max-width: 300px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    .profile img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .profile h3 {
+      color: #d81b60;
+    }
+
+    .quote-section {
+      background-color: #fff0f5;
+    }
+
+    .quote-text {
+      font-size: 20px;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .quote-source {
+      font-weight: bold;
+      color: #d81b60;
+    }
+
+    .event-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .event {
+      background: #fff0f5;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 300px;
+    }
+
+    .event h3 {
+      color: #d81b60;
+    }
+
+    .map-container {
+      max-width: 800px;
+      margin: auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 350px;
+      border: 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .rsvp-form {
+      max-width: 400px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .rsvp-form input,
+    .rsvp-form select {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .btn-submit {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      transform: scale(1.05);
+    }
+
+    #musik audio {
+      width: 300px;
+      max-width: 90%;
+      margin-top: 20px;
+    }
+
+    /* Responsive untuk mobile */
+    @media (max-width: 768px) {
+      .bunga-go {
+        width: 60px;
+      }
+      
+      .bunga-go-left {
+        width: 45px;
+      }
+      
+      .cover h1 {
+        font-size: 36px;
+      }
+      
+      .timer div {
+        padding: 15px;
+        min-width: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Bunga kanan atas -->
+<div class="bunga-container">
+  <svg class="bunga-go" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Batang -->
+    <rect x="48" y="60" width="4" height="35" fill="#4CAF50"/>
+    
+    <!-- Daun -->
+    <ellipse cx="45" cy="70" rx="8" ry="4" fill="#66BB6A" transform="rotate(-30 45 70)"/>
+    <ellipse cx="55" cy="75" rx="6" ry="3" fill="#66BB6A" transform="rotate(30 55 75)"/>
+    
+    <!-- Kelopak bunga -->
+    <ellipse cx="35" cy="35" rx="12" ry="6" fill="#FF6B9D" transform="rotate(45 35 35)"/>
+    <ellipse cx="65" cy="35" rx="12" ry="6" fill="#FF6B9D" transform="rotate(-45 65 35)"/>
+    <ellipse cx="35" cy="65" rx="12" ry="6" fill="#FF6B9D" transform="rotate(-45 35 65)"/>
+    <ellipse cx="65" cy="65" rx="12" ry="6" fill="#FF6B9D" transform="rotate(45 65 65)"/>
+    <ellipse cx="50" cy="25" rx="10" ry="8" fill="#FF8A80"/>
+    <ellipse cx="50" cy="75" rx="10" ry="8" fill="#FF8A80"/>
+    <ellipse cx="25" cy="50" rx="10" ry="8" fill="#FF8A80"/>
+    <ellipse cx="75" cy="50" rx="10" ry="8" fill="#FF8A80"/>
+    
+    <!-- Pusat bunga -->
+    <circle cx="50" cy="50" r="8" fill="#FFD54F"/>
+    <circle cx="50" cy="50" r="4" fill="#FFA000"/>
+  </svg>
+</div>
+
+<!-- Bunga kiri bawah -->
+<div class="bunga-container-left">
+  <svg class="bunga-go-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Batang -->
+    <rect x="48" y="65" width="4" height="30" fill="#4CAF50"/>
+    
+    <!-- Daun -->
+    <ellipse cx="42" cy="75" rx="6" ry="3" fill="#66BB6A" transform="rotate(-25 42 75)"/>
+    <ellipse cx="58" cy="78" rx="5" ry="2.5" fill="#66BB6A" transform="rotate(25 58 78)"/>
+    
+    <!-- Kelopak bunga -->
+    <ellipse cx="40" cy="40" rx="10" ry="5" fill="#E91E63" transform="rotate(50 40 40)"/>
+    <ellipse cx="60" cy="40" rx="10" ry="5" fill="#E91E63" transform="rotate(-50 60 40)"/>
+    <ellipse cx="40" cy="60" rx="10" ry="5" fill="#E91E63" transform="rotate(-50 40 60)"/>
+    <ellipse cx="60" cy="60" rx="10" ry="5" fill="#E91E63" transform="rotate(50 60 60)"/>
+    <ellipse cx="50" cy="30" rx="8" ry="6" fill="#F06292"/>
+    <ellipse cx="50" cy="70" rx="8" ry="6" fill="#F06292"/>
+    <ellipse cx="30" cy="50" rx="8" ry="6" fill="#F06292"/>
+    <ellipse cx="70" cy="50" rx="8" ry="6" fill="#F06292"/>
+    
+    <!-- Pusat bunga -->
+    <circle cx="50" cy="50" r="6" fill="#FFF176"/>
+    <circle cx="50" cy="50" r="3" fill="#F57F17"/>
+  </svg>
+</div>
+
+<!-- Cover -->
+<div class="cover">
+  <div class="overlay"></div>
+  <div class="content">
+    <h1 class="fade-in-text">Xaviera & Jeno</h1>
+    <p class="fade-in-text delay-1">24 Maret 2026</p>
+    <button class="btn-open fade-in-text delay-2" onclick="document.getElementById('acara').scrollIntoView({behavior: 'smooth'})">Buka Undangan</button>
+  </div>
+</div>
+
+<!-- Profil -->
+<section class="section" id="profil">
+  <h2 class="fade-in-text">Profil Pengantin</h2>
+  <div class="profiles">
+    <div class="profile slide-in-left delay-1">
+      <img src="jenrina.jpg" alt="Nesa" class="fade-in-image delay-2">
+      <h3 class="fade-in-text delay-3">Xaviera Putri</h3>
+      <p class="fade-in-text delay-4">Putri dari Bapak Ahmad & Ibu Siti</p>
+    </div>
+    <div class="profile slide-in-right delay-1">
+      <img src="Jeno lee.jpg" alt="Jeno" class="fade-in-image delay-2">
+      <h3 class="fade-in-text delay-3">Lee Jeno</h3>
+      <p class="fade-in-text delay-4">Putra dari Bapak Bambang & Ibu Dewi</p>
+    </div>
+  </div>
+</section>
+
+<!-- Quotes -->
+<section class="quote-section section">
+  <p class="quote-text fade-in-text">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri..."</p>
+  <p class="quote-source fade-in-text delay-1">- QS. Ar-Rum: 21</p>
+</section>
+
+<!-- Acara -->
+<section class="section" id="acara">
+  <h2 class="fade-in-text">Informasi Acara</h2>
+  <div class="event-details">
+    <div class="event slide-in-left delay-1">
+      <h3>Akad Nikah</h3>
+      <p><strong>Sabtu, 24 Maret 2026</strong><br> Pukul 08.00 WIB<br> Gedung Chandra</p>
+    </div>
+    <div class="event slide-in-right delay-1">
+      <h3>Resepsi</h3>
+      <p><strong>Minggu, 26 Maret 2026</strong><br> Pukul 10.00 - 13.00 WIB<br> Gedung Chandra</p>
+    </div>
+  </div>
+</section>
+
+<!-- Countdown Dipindahkan ke Sini -->
+<section class="section" id="countdown">
+  <h2 class="fade-in-text" style="margin-bottom:10px;">Hari Bahagia Tiba</h2>
+  <div class="fade-in-text delay-1" style="font-size:18px; color:#d81b60; margin-bottom:24px;">Hitung mundur menuju hari istimewa kami:</div>
+  <div class="timer">
+    <div class="fade-in-text delay-1"><span id="days">0</span><p>Hari</p></div>
+    <div class="fade-in-text delay-2"><span id="hours">0</span><p>Jam</p></div>
+    <div class="fade-in-text delay-3"><span id="minutes">0</span><p>Menit</p></div>
+    <div class="fade-in-text delay-4"><span id="seconds">0</span><p>Detik</p></div>
+  </div>
+</section>
+
+<!-- Musik -->
+<section class="section" id="musik">
+  <!-- Audio dan tombol play/pause custom mengambang, tanpa tulisan -->
+  <audio id="backgroundMusic" autoplay loop style="display:none;">
+    <source src="wedding.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung pemutar audio.
+  </audio>
+  <button id="audioToggleBtn" aria-label="Play/Pause Music">
+    <span id="audioIcon">⏸️</span>
+  </button>
+    <!-- Countdown di atas tombol musik, diperbesar dan jarak lebih dekat -->
+    <div id="musik-countdown" style="margin-bottom: 10px; margin-top: 0; display: flex; justify-content: center; gap: 32px;">
+      <div style="background:#fff0f5; padding:24px 32px; border-radius:16px; min-width:90px; text-align:center;">
+        <span id="musik-days" style="font-size:2.5rem; font-weight:bold;">0</span><div style="font-size:1.2rem;color:#d81b60; margin-top:6px;">Hari</div>
+      </div>
+      <div style="background:#fff0f5; padding:24px 32px; border-radius:16px; min-width:90px; text-align:center;">
+        <span id="musik-hours" style="font-size:2.5rem; font-weight:bold;">0</span><div style="font-size:1.2rem;color:#d81b60; margin-top:6px;">Jam</div>
+      </div>
+      <div style="background:#fff0f5; padding:24px 32px; border-radius:16px; min-width:90px; text-align:center;">
+        <span id="musik-minutes" style="font-size:2.5rem; font-weight:bold;">0</span><div style="font-size:1.2rem;color:#d81b60; margin-top:6px;">Menit</div>
+      </div>
+      <div style="background:#fff0f5; padding:24px 32px; border-radius:16px; min-width:90px; text-align:center;">
+        <span id="musik-seconds" style="font-size:2.5rem; font-weight:bold;">0</span><div style="font-size:1.2rem;color:#d81b60; margin-top:6px;">Detik</div>
+      </div>
+    </div>
+  <style>
+    #audioToggleBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 9999;
+      transition: background 0.2s;
+    }
+    #audioToggleBtn:hover {
+      background: #f0f0f0;
+    }
+  </style>
+  <script>
+    const audio = document.getElementById('backgroundMusic');
+    const btn = document.getElementById('audioToggleBtn');
+    const icon = document.getElementById('audioIcon');
+    btn.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        icon.textContent = '⏸️';
+      } else {
+        audio.pause();
+        icon.textContent = '▶️';
+      }
+    });
+    audio.addEventListener('play', () => { icon.textContent = '⏸️'; });
+    audio.addEventListener('pause', () => { icon.textContent = '▶️'; });
+    // Countdown Musik
+    function updateMusikCountdown() {
+      // Tanggal target (ubah sesuai tanggal acara)
+      const target = new Date('2026-03-24T08:00:00+07:00');
+      const now = new Date();
+      const diff = target - now;
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+        document.getElementById('musik-days').textContent = days;
+        document.getElementById('musik-hours').textContent = hours;
+        document.getElementById('musik-minutes').textContent = minutes;
+        document.getElementById('musik-seconds').textContent = seconds;
+      } else {
+        document.getElementById('musik-countdown').innerHTML = '<span style="color:#d81b60;font-weight:bold;">Hari Bahagia Telah Tiba!</span>';
+      }
+    }
+    setInterval(updateMusikCountdown, 1000);
+    updateMusikCountdown();
+  </script>
+</section>
+
+<!-- Lokasi -->
+<section class="section" id="lokasi">
+  <h2 class="fade-in-text">Lokasi Acara</h2>
+  <p class="fade-in-text delay-1">Gedung Chandra</p>
+  <div class="map-container fade-in-text delay-2">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.1923931060915!2d114.57539799999996!3d-3.302512899999988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de42312c676b753%3A0x82f4aeb0369d72b!2sGedung%20Chandra!5e0!3m2!1sid!2sid!4v1748920451192!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
+<!-- Galeri -->
+<section class="section" id="galeri">
+  <h2 class="fade-in-text">Galeri Prewedding</h2>
+  <div class="gallery-grid">
+    <img src="ekiyney.jpg" alt="Foto 1" class="fade-in-image delay-1">
+    <img src="Bluesy jenrina.jpg" alt="Foto 1" class="fade-in-image delay-1">
+    <img src="nesa.jpg" alt="Foto 1" class="fade-in-image delay-1">
+    <img src="Jeno-Karina.jpg" alt="Foto 2" class="fade-in-image delay-2">
+    <img src="download (7).jpg" alt="Foto 3" class="fade-in-image delay-3">
+    <img src="download (8).jpg" alt="Foto 4" class="fade-in-image delay-4">
+    <img src="jeno karina edit, pre wedding.jpg" alt="Foto 5" class="fade-in-image delay-1">
+    <img src="Jeno & karina.jpg" alt="Foto 6" class="fade-in-image delay-2">
+  </div>
+</section>
+
+<!-- RSVP -->
+<section class="section" id="rsvp">
+  <h2 class="fade-in-text">Konfirmasi Kehadiran (RSVP)</h2>
+  <form class="rsvp-form fade-in-text delay-1" onsubmit="rsvpSuccess(event)">
+    <label for="nama">Nama:</label>
+    <input type="text" id="nama" name="nama" required>
+    <label for="jumlah">Jumlah Tamu:</label>
+    <input type="number" id="jumlah" name="jumlah" min="1" required>
+    <label for="kehadiran">Kehadiran:</label>
+    <select id="kehadiran" name="kehadiran" required>
+      <option value="">-- Pilih --</option>
+      <option value="Hadir">Hadir</option>
+      <option value="Tidak Hadir">Tidak Hadir</option>
+    </select>
+    <button type="submit" class="btn-submit">Kirim</button>
+  </form>
+</section>
+
+<section id="terima-kasih" style="text-align: center; padding: 40px; background-color: #fdf6f0;">
+  <h2 style="font-family: 'Segoe Script', cursive; color: #d87d4a;">Terima Kasih</h2>
+  <p style="font-size: 18px; color: #333; max-width: 600px; margin: auto;">
+    Kami mengucapkan terima kasih yang sebesar-besarnya atas doa, cinta, dan kehadiran Bapak/Ibu/Saudara/i dalam momen bahagia kami.
+  </p>
+  <p style="margin-top: 20px; font-style: italic; color: #666;">
+    "Cinta tidak hanya saling memandang, tapi melihat ke arah yang sama bersama." – Antoine de Saint-Exupéry
+  </p>
+</section>
+
+<script>
+  const weddingDate = new Date("July 12, 2025 09:00:00").getTime();
+  const timer = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+
+    if (distance < 0) {
+      clearInterval(timer);
+      document.getElementById("countdown").innerHTML = "<h2>Hari Bahagia Telah Tiba!</h2>";
+    }
+  }, 1000);
+
+  function rsvpSuccess(e) {
+    e.preventDefault();
+    alert("Terima kasih! Kehadiran Anda telah dikonfirmasi.");
+    e.target.reset();
+  }
+
+  // Intersection Observer untuk animasi ketika scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, observerOptions);
+
+  // Observe semua elemen dengan class animasi
+  document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.fade-in-text, .fade-in-image, .slide-in-left, .slide-in-right');
+    animatedElements.forEach(el => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+  });
+</script>
+
+</body>
+</html>
